@@ -58,4 +58,52 @@ registerUser = async (req, res) => {
         console.log(err);
         res.status(500).send();
     }
-} 
+}
+
+loginUser = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        if (!username || !password) {
+            return res
+                .status(400)
+                .json({
+                    errorMessage: "Please enter all required fields."
+                });
+        }
+        const user = await User.findOne({ username: username });
+        if (!user) {
+            return res
+                .status(400)
+                .json({
+                    errorMessage: "No account with this username exists."
+                });
+        }
+        const passMatch = await bcrypt.compare(password, user.password);
+        if (!passMatch) {
+            return res
+                .status(400)
+                .json({
+                    errorMessage: "Incorrect password."
+                });
+        }
+
+        const token = auth.signToken(user);
+
+        await res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none"
+        }).status(200).json({
+            success: true,
+            user: {
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email
+            }
+        }).send();
+    } catch (err) {
+        console.log(err);
+        res.status(500).send();
+    }
+}
