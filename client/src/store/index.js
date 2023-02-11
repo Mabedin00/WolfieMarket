@@ -11,3 +11,13 @@ export const GlobalStoreActionType = {
   CHANGE_SORT_ORDER: "CHANGE_SORT_ORDER",
   LOAD_QUERIED_POST: "LOAD_QUERIED_POST",
 };
+function GlobalStoreContextProvider(props) {
+  // THESE ARE ALL THE THINGS OUR DATA STORE WILL MANAGE
+  // SINCE WE'VE WRAPPED THE STORE IN THE AUTH CONTEXT WE CAN ACCESS THE USER HERE
+  const { auth } = useContext(AuthContext);
+  const [store, setStore] = useState({
+    idNamePairs: [],
+    currentListing: null,
+  });
+  const history = useHistory();
+}
