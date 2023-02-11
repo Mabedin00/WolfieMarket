@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const Schema = mogoose.Schema
-const ObjectId = Schema.Types.ObjectId
 
 const UserSchema = new Schema(
     {
@@ -10,7 +9,12 @@ const UserSchema = new Schema(
         items: { type: [String] },
         services: { type: [String] },
         rating: { type: Number },
-        reviews: { type: [String] },
+        reviews: {
+            type: [{
+                comment: { type: String },
+                username: { type: String }
+            }]
+        },
         firstName: { type: String, required: true },
         lastName: { type: String, required: true }
     },
