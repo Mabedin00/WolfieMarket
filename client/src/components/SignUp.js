@@ -13,7 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Cancel";
 import AuthContext from "../auth";
 import { GlobalStoreContext } from "../store";
-
+import "./SignUp.css";
 export default function LoginScreen() {
   const { auth } = useContext(AuthContext);
   const { store } = useContext(GlobalStoreContext);
@@ -115,7 +115,11 @@ export default function LoginScreen() {
         />
         <br />
         <br />
-        <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2 , color:"white", backgroundColor: "#6a3d45"}}>
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{ mt: 3, mb: 2, color: "white", backgroundColor: "#6a3d45" }}
+        >
           Sign Up
         </Button>{" "}
         <br />
