@@ -115,7 +115,7 @@ export default function LoginScreen() {
         />
         <br />
         <br />
-        <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2 }}>
+        <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2 , color:"white", backgroundColor: "#6a3d45"}}>
           Sign Up
         </Button>{" "}
         <br />
