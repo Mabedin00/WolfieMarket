@@ -92,7 +92,7 @@ loginUser = async (req, res) => {
         await res.cookie("token", token, {
             httpOnly: true,
             secure: true,
-            sameSite: "none"
+            sameSite: 'token'
         }).status(200).json({
             success: true,
             user: {
@@ -106,4 +106,21 @@ loginUser = async (req, res) => {
         console.log(err);
         res.status(500).send();
     }
+}
+
+logoutUser = async (req, res) => {
+    try {
+        await res.clearCookie('token').status(200).json({
+            success: true
+        }).send();
+    } catch (err) {
+        console.log(err);
+        res.status(500).send();
+    }
+}
+
+module.exports = {
+    registerUser,
+    loginUser,
+    logoutUser
 }
