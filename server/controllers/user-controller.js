@@ -1,6 +1,6 @@
 const auth = require('../auth')
 const User = require('../models/user-model')
-const bcrypt = require('bcyrptjs')
+const bcrypt = require('bcryptjs')
 
 getLoggedIn = async (req, res) => {
     try {
@@ -97,7 +97,8 @@ loginUser = async (req, res) => {
                     errorMessage: "No account with this username exists."
                 });
         }
-        const passMatch = await bcrypt.compare(password, user.password);
+        // const passMatch = await bcrypt.compare(password, user.password);
+        const passMatch = password == user.password;
         if (!passMatch) {
             return res
                 .status(400)

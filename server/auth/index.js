@@ -1,5 +1,4 @@
-const { verify } = require('crypto')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
 function authManager() {
     verify = (req, res, next) => {
