@@ -35,7 +35,7 @@ export default function LoginScreen() {
   };
   return (
     <div className="foundation-screen">
-      <img src={logo} className="app-logo" alt="logo" />
+      {/* <img src={logo} className="app-logo" alt="logo" /> */}
       <div className="splash-text">
         <Typography variant="h2" gutterBottom>
           Sign Up
