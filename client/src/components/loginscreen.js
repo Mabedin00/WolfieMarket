@@ -1,56 +1,51 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import logo from "/Users/davidlau/Desktop/WolfieMarket/client/src/assets/logo.png";
 
-class App extends Component {
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(e.target.email.value);
+import Form from "react-bootstrap/Form";
 
-    if (!e.target.email.value) {
-      alert("Email is required");
-    } else if (!e.target.email.value) {
-      alert("Valid email is required");
-    } else if (!e.target.password.value) {
-      alert("Password is required");
-    } else if (
-      e.target.email.value === "me@example.com" &&
-      e.target.password.value === "123456"
-    ) {
-      alert("Successfully logged in");
-      e.target.email.value = "";
-      e.target.password.value = "";
-    } else {
-      alert("Wrong email or password combination");
-    }
-  };
+import Button from "react-bootstrap/Button";
 
-  handleClick = (e) => {
-    e.preventDefault();
+export default function Login() {
+  const [email, setEmail] = useState("");
 
-    alert("Goes to registration page");
-  };
+  const [password, setPassword] = useState("");
 
-  render() {
-    return (
-      <div className="App">
-        <img src={logo} className="logo" alt="Business view - Reports" />
-        <form className="form" onSubmit={this.handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" placeholder="nome@email.com.br" />
-          </div>
-          <div className="input-group">
-            <label htmlFor="password">Senha</label>
-            <input type="password" name="password" />
-          </div>
-          <button className="primary">ENTRAR</button>
-        </form>
-        <button className="secondary" onClick={this.handleClick}>
-          Criar uma nova conta
-        </button>
-      </div>
-    );
+  function validateForm() {
+    return email.length > 0 && password.length > 0;
   }
-}
 
-export default App;
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  return (
+    <div className="Login">
+      <Form onSubmit={handleSubmit}>
+        <Form.Group size="lg" controlId="email">
+          <Form.Label>Email</Form.Label>
+
+          <Form.Control
+            autoFocus
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group size="lg" controlId="password">
+          <Form.Label>Password</Form.Label>
+
+          <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+
+        <Button block size="lg" type="submit" disabled={!validateForm()}>
+          Login
+        </Button>
+      </Form>
+    </div>
+  );
+}

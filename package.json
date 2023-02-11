@@ -3,6 +3,8 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.11.8",
+    "react-bootstrap-validation": "^0.1.11",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1"
   }
 }
