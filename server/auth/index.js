@@ -24,4 +24,15 @@ function authManager() {
             });
         }
     }
+
+    signToken = (user) => {
+        return jwt.sign({
+            userId: user._id
+        }, process.env.JWT_SECRET);
+    }
+
+    return this;
 }
+
+const auth = authManager()
+module.exports = auth; 
