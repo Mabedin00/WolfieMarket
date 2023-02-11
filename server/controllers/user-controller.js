@@ -2,6 +2,26 @@ const auth = require('../auth')
 const User = require('../models/user-model')
 const bcrypt = require('bcyrptjs')
 
+getLoggedIn = async (req, res) => {
+    try {
+        auth.verify(req, res, async () => {
+            const loggedInUser = await User.findOne({ _id: req.userId });
+            return res.status(200).json({
+                loggedIn: true,
+                user: {
+                    username: loggedInUser.username,
+                    email: loggedInUser.email
+                }
+            }).send();
+        })
+    } catch (err) {
+        return res.status(200).json({
+            loggedIn: false
+        }).send();
+    }
+}
+
+
 registerUser = async (req, res) => {
     try {
         const { username, password, passwordVerify, firstName, lastName, email } = req.body;
@@ -97,8 +117,6 @@ loginUser = async (req, res) => {
             success: true,
             user: {
                 username: user.username,
-                firstName: user.firstName,
-                lastName: user.lastName,
                 email: user.email
             }
         }).send();
@@ -120,6 +138,7 @@ logoutUser = async (req, res) => {
 }
 
 module.exports = {
+    getLoggedIn,
     registerUser,
     loginUser,
     logoutUser
