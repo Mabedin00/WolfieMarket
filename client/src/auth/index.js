@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import api from '../api';
 
 const AuthContext = createContext();
 
@@ -16,6 +17,88 @@ function AuthContextProvider(props) {
         loggedIn: false,
         error: null
     });
+
+    const authReducer = (action) => {
+        const { type, payload } = action;
+        switch (type) {
+            case AuthActionType.GET_LOGGED_IN: {
+                return setAuth({
+                    user: payload.user,
+                    loggedIn: payload.loggedIn,
+                    error: null
+                });
+            }
+            case AuthActionType.SET_LOGGED_IN: {
+                return setAuth({
+                    user: payload.user,
+                    loggedIn: payload.loggedIn,
+                    error: null
+
+                });
+            }
+
+            case AuthActionType.SET_ERROR: {
+                return setAuth({
+                    user: null,
+                    loggedIn: false,
+                    error: payload.error,
+                })
+            }
+            case AuthActionType.REGISTER_USER: {
+                return setAuth({
+                    user: payload.user,
+                    loggedIn: true,
+                    error: null
+                })
+            }
+            default:
+                return auth;
+        }
+    }
+
+    auth.getLoggedIn = async function () {
+        try {
+            const response = await api.getLoggedIn();
+            if (response.status === 200) {
+                authReducer({
+                    type: AuthActionType.GET_LOGGED_IN,
+                    payload: {
+                        loggedIn: response.data.loggedIn,
+                        user: response.data.user
+                    }
+                });
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+     // Logs user in and sets the state
+     auth.loginUser = async function(userData, store) {
+        await api.loginUser(userData).then(response => {
+            if (response.status === 200) {
+                authReducer({
+                    type: AuthActionType.SET_LOGGED_IN,
+                    payload: {
+                        loggedIn: true,
+                        user: response.data.user
+                    }
+                })
+                    // history.push("/home");
+                }
+            }).catch(err => {
+                console.log(err);
+                let errorMsg = err.response.data.errorMessage;
+                console.log(errorMsg);
+                authReducer({
+                    type: AuthActionType.SET_ERROR,
+                    payload: {
+                        error: errorMsg
+                    }
+                })
+            });
+        
+    }
 
     return (
         <AuthContext.Provider value={{
