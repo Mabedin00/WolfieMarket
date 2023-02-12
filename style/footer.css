@@ -1,0 +1,25 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #e5564d;
+    width: 100%;
+    padding-top: 15px;
+    height: 80px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    column-gap: 30px;
+}
+
+.footer-nav li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    border: black solid 2px;
+}
