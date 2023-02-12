@@ -1,27 +1,29 @@
-body{
+body {
     background-color: #e5564d;
 }
-.full-list{
+
+.full-list {
     background: white;
     margin-left: 25%;
-    position:absolute;
+    position: absolute;
     top: 10%;
     width: 50%;
     text-align: center;
     height: 100%;
 }
 
-.list-img{
-    justify-content: left;
-
+.list-img {
+    display: flex;
+    justify-content: space-around;
 }
 
-h4, h3{
+h4,
+h3 {
     margin-left: 2%;
     text-align: left;
 }
 
-p{
+p {
     margin-left: 2%;
 
     text-align: left;
