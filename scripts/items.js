@@ -1,20 +1,13 @@
+var checked = 0;
+
 window.addEventListener('load', (event) => {
-    const checkbox = document.getElementById('textbooks');
-    checkbox.addEventListener('change', (event) => {
-        var items = document.getElementsByClassName('item');
-        if (event.currentTarget.checked) {
-            for (let i = 0; i < items.length; i++) {
-                if (!items[i].classList.contains('textbook')) {
-                    items[i].style.display = 'none';
-                }
+    const checkboxes = document.getElementsByClassName('form-check-input');
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('change', (event) => {
+            var items = document.getElementsByClassName('item');
+            if (event.currentTarget.checked) {
+                console.log(event.currentTarget);
             }
-        }
-        else {
-            for (let i = 0; i < items.length; i++) {
-                if (!items[i].classList.contains('textbook')) {
-                    items[i].style.display = '';
-                }
-            }
-        }
-    });
+        });
+    }
 });
