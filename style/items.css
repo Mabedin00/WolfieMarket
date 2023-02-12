@@ -1,0 +1,46 @@
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.filter-form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.form-check {
+  margin-bottom: 1rem;
+  text-align: left;
+
+}
+input[type="text"] {
+  padding: 0.5em;
+  font-size: 1em;
+  border: none;
+  background-color: #824247;
+  border-radius: 5px 0 0 5px;
+}
+
+button[type="submit"] {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  background-color: #513844;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+body {
+  background-color: #e5564d;
+}
