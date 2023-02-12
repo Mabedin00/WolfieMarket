@@ -31,7 +31,7 @@
 #recent-posts {
     border: solid 3px black;
     margin-right: 30px;
-    height: 650px;
+    height: 630px;
     overflow: auto;
 }
 
