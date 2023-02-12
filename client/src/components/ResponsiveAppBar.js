@@ -36,9 +36,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" className="nav-bar">
-      <Container maxWidth="xl" className="nav-bar">
-        <Toolbar className="nav-bar">
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"

@@ -15,6 +15,7 @@ import AuthContext from "../auth";
 import { GlobalStoreContext } from "../store";
 import "./LoginScreen.css";
 import ResponsiveAppBar from "./ResponsiveAppBar.js";
+import Booter from "./Footer.js";
 export default function LoginScreen() {
   const { auth } = useContext(AuthContext);
   const { store } = useContext(GlobalStoreContext);
@@ -106,6 +107,7 @@ export default function LoginScreen() {
         <Link to="/register/" variant="body2">
           {"Don't have an account? Sign Up"}
         </Link>
+        <Booter></Booter>
       </Box>
     </div>
   );
