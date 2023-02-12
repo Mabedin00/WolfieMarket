@@ -36,7 +36,7 @@ export default function LoginScreen() {
   };
   return (
     <div className="foundation-screen">
-      <ResponsiveAppBar>logo and name</ResponsiveAppBar>;
+      <ResponsiveAppBar>logo and name</ResponsiveAppBar>
       {/* <img src={logo} className="app-logo" alt="logo" /> */}
       <div className="splash-text">
         <Typography variant="h2" gutterBottom>
