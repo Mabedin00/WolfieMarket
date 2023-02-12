@@ -7,7 +7,6 @@ window.addEventListener('load', (event) => {
             if (event.currentTarget.checked) {
                 filter += '.' + event.currentTarget.id
                 var items = document.querySelectorAll('.item:not(' + filter + ')');
-                console.log(items);
                 for (let i = 0; i < items.length; i++) {
                     items[i].style.display = 'none';
                 }
