@@ -32,8 +32,8 @@ export default function LoginScreen() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     auth.registerUser({
-      firstName: formData.get('firstname'),
-      lastName: formData.get('lastname'),
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
       email: formData.get('email'),
       username: formData.get('username'),
       password: formData.get('password'),
@@ -59,7 +59,7 @@ export default function LoginScreen() {
         <Box sx={style}>
           {/* Make a close button at the top right of the box */}
           <IconButton onClick={handleClose}
-           sx={{ position: "absolute", top: "0", right: "0" }}>
+            sx={{ position: "absolute", top: "0", right: "0" }}>
             <CloseIcon />
           </IconButton>
           <Alert severity="error">{auth.error}</Alert>

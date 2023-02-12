@@ -68,7 +68,11 @@ registerUser = async (req, res) => {
         const salt = await bcrypt.genSalt(saltRounds);
         const passHash = await bcrypt.hash(password, salt);
         const newUser = new User({
-            username, passHash, firstName, lastName, email
+            username: username,
+            password: passHash,
+            firstName: firstName,
+            lastName: lastName,
+            email: email
         });
         const savedUser = await newUser.save();
         return res.status(200).json({
@@ -100,9 +104,7 @@ loginUser = async (req, res) => {
                     errorMessage: "No account with this username exists."
                 });
         }
-        // const passMatch = await bcrypt.compare(password, user.password);
-        console.log(password, user.password)
-        const passMatch = password == user.password;
+        const passMatch = await bcrypt.compare(password, user.password);
         if (!passMatch) {
             return res
                 .status(400)
