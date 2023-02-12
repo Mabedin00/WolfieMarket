@@ -15,6 +15,7 @@ form {
 .filter-form {
   display: flex;
   flex-direction: column;
+  position: sticky;
   align-items: flex-start;
 }
 
@@ -51,6 +52,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  height: 100%;
 }
 
 .item img {
@@ -75,12 +77,16 @@ body {
 .content {
   margin-top: 20px;
   margin-bottom: 10px;
-
+  background-color: #f8f9fa;
+  height: 1500px;
 }
 
 .side-bar{
 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,e5e5e5+100;White+3D */
 background: #f5f0f6; /* Old browsers */
+height: 100%;
+position: sticky;
+top: 0;
 
 
 }
