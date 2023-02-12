@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import api from '../api';
 
 const AuthContext = createContext();
@@ -17,6 +18,8 @@ function AuthContextProvider(props) {
         loggedIn: false,
         error: null
     });
+
+    const navigate = useNavigate();
 
     const authReducer = (action) => {
         const { type, payload } = action;
@@ -54,6 +57,33 @@ function AuthContextProvider(props) {
             default:
                 return auth;
         }
+    }
+
+    auth.registerUser = async function(userData, store) {
+        await api.registerUser(userData)
+        .then(response => {
+            console.log(response)
+            if (response.status === 200) {     
+            authReducer({
+                type: AuthActionType.REGISTER_USER,
+                payload: {
+                    user: response.data.user
+                }
+            })
+                navigate('/login');
+            }
+        }
+        ).catch(err => { 
+            let errorMsg = err.response.data.errorMessage;
+            authReducer({
+                type: AuthActionType.SET_ERROR,
+                payload: {
+                    error: errorMsg
+                }
+            })
+
+        });      
+            
     }
 
     auth.getLoggedIn = async function () {
