@@ -5,7 +5,25 @@ body{
     background: white;
     margin-left: 25%;
     position:absolute;
-    top: 25%;
+    top: 10%;
     width: 50%;
     text-align: center;
+    height: 100%;
+}
+
+.list-img{
+    justify-content: left;
+
+}
+
+h4, h3{
+    margin-left: 2%;
+    text-align: left;
+}
+
+p{
+    margin-left: 2%;
+
+    text-align: left;
+
 }
