@@ -90,6 +90,8 @@ loginUser = async (req, res) => {
                 });
         }
         const user = await User.findOne({ username: username });
+
+        console.log(user);
         if (!user) {
             return res
                 .status(400)
@@ -98,6 +100,7 @@ loginUser = async (req, res) => {
                 });
         }
         // const passMatch = await bcrypt.compare(password, user.password);
+        console.log(password, user.password)
         const passMatch = password == user.password;
         if (!passMatch) {
             return res
@@ -109,10 +112,10 @@ loginUser = async (req, res) => {
 
         const token = auth.signToken(user);
 
-        await res.cookie("token", token, {
+        await res.cookie('token', token, {
             httpOnly: true,
             secure: true,
-            sameSite: 'token'
+            sameSite: 'none'
         }).status(200).json({
             success: true,
             user: {

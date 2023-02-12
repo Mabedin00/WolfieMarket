@@ -25,6 +25,7 @@ function authManager() {
     }
 
     signToken = (user) => {
+        console.log(process.env.JWT_SECRET);
         return jwt.sign({
             userId: user._id
         }, process.env.JWT_SECRET);
