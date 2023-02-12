@@ -24,7 +24,6 @@ getLoggedIn = async (req, res) => {
 registerUser = async (req, res) => {
     try {
         const { username, password, passwordVerify, firstName, lastName, email } = req.body;
-        console.log(username, password, passwordVerify, firstName, lastName, email);
         if (!username || !password || !passwordVerify || !firstName || !lastName || !email) {
             return res
                 .status(400)
