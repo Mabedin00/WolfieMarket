@@ -26,12 +26,13 @@
 
 .recent-posts h1 {
     font-size: 25px;
+    margin-bottom: 6px;
 }
 
 #recent-posts {
     border: solid 3px black;
     margin-right: 30px;
-    height: 630px;
+    height: 635px;
     overflow: auto;
 }
 
