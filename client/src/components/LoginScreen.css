@@ -1,6 +1,10 @@
 .foundation-screen {
   text-align: center;
+  background-color: #e5564d;
 }
 .nav-bar{
-  background-color: #393343;
+  background-color: #513844;
+}
+body{
+  background-color: #e5564d
 }
