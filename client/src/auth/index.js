@@ -129,6 +129,14 @@ function AuthContextProvider(props) {
             });
         
     }
+    auth.setError = (error) => {
+        authReducer({
+            type: AuthActionType.SET_ERROR,
+            payload: {
+                error: error
+            }
+        })
+    }
 
     return (
         <AuthContext.Provider value={{

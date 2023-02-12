@@ -32,8 +32,8 @@ export default function LoginScreen() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     auth.registerUser({
-      firstName: formData.get('firstName'),
-      lastName: formData.get('lastName'),
+      firstName: formData.get('firstname'),
+      lastName: formData.get('lastname'),
       email: formData.get('email'),
       username: formData.get('username'),
       password: formData.get('password'),
@@ -41,6 +41,8 @@ export default function LoginScreen() {
     }, store);
     console.log(auth.loggedIn);
   };
+  const handleClose = () => auth.setError(null);
+
   return (
     <div className="foundation-screen">
       {/* <img src={logo} className="app-logo" alt="logo" /> */}
@@ -56,7 +58,8 @@ export default function LoginScreen() {
       >
         <Box sx={style}>
           {/* Make a close button at the top right of the box */}
-          <IconButton sx={{ position: "absolute", top: "0", right: "0" }}>
+          <IconButton onClick={handleClose}
+           sx={{ position: "absolute", top: "0", right: "0" }}>
             <CloseIcon />
           </IconButton>
           <Alert severity="error">{auth.error}</Alert>
