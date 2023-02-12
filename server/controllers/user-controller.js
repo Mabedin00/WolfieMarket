@@ -1,6 +1,6 @@
 const auth = require('../auth')
 const User = require('../models/user-model')
-const bcrypt = require('bcyrptjs')
+const bcrypt = require('bcryptjs')
 
 getLoggedIn = async (req, res) => {
     try {
@@ -21,10 +21,10 @@ getLoggedIn = async (req, res) => {
     }
 }
 
-
 registerUser = async (req, res) => {
     try {
         const { username, password, passwordVerify, firstName, lastName, email } = req.body;
+        console.log(username, password, passwordVerify, firstName, lastName, email);
         if (!username || !password || !passwordVerify || !firstName || !lastName || !email) {
             return res
                 .status(400)
@@ -68,7 +68,11 @@ registerUser = async (req, res) => {
         const salt = await bcrypt.genSalt(saltRounds);
         const passHash = await bcrypt.hash(password, salt);
         const newUser = new User({
-            username, passHash, firstName, lastName, email
+            username: username,
+            password: passHash,
+            firstName: firstName,
+            lastName: lastName,
+            email: email
         });
         const savedUser = await newUser.save();
         return res.status(200).json({
@@ -91,6 +95,8 @@ loginUser = async (req, res) => {
                 });
         }
         const user = await User.findOne({ username: username });
+
+        console.log(user);
         if (!user) {
             return res
                 .status(400)
@@ -109,10 +115,10 @@ loginUser = async (req, res) => {
 
         const token = auth.signToken(user);
 
-        await res.cookie("token", token, {
+        await res.cookie('token', token, {
             httpOnly: true,
             secure: true,
-            sameSite: 'token'
+            sameSite: 'none'
         }).status(200).json({
             success: true,
             user: {

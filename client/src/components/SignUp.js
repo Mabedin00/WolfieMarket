@@ -31,8 +31,18 @@ export default function LoginScreen() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+    auth.registerUser({
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      username: formData.get('username'),
+      password: formData.get('password'),
+      passwordVerify: formData.get('passwordVerify')
+    }, store);
     console.log(auth.loggedIn);
   };
+  const handleClose = () => auth.setError(null);
+
   return (
     <div className="foundation-screen">
       {/* <img src={logo} className="app-logo" alt="logo" /> */}
@@ -48,7 +58,8 @@ export default function LoginScreen() {
       >
         <Box sx={style}>
           {/* Make a close button at the top right of the box */}
-          <IconButton sx={{ position: "absolute", top: "0", right: "0" }}>
+          <IconButton onClick={handleClose}
+            sx={{ position: "absolute", top: "0", right: "0" }}>
             <CloseIcon />
           </IconButton>
           <Alert severity="error">{auth.error}</Alert>
@@ -66,24 +77,24 @@ export default function LoginScreen() {
           margin="normal"
           required
           fullWidth
-          id="firstname"
+          id="firstName"
           label="First Name"
           variant="filled"
-          name="firstname"
+          name="firstName"
           color="secondary"
-          autoComplete="firstname"
+          autoComplete="firstName"
           autoFocus
         />{" "}
         <TextField
           margin="normal"
           required
           fullWidth
-          id="lastname"
+          id="lastName"
           label="Last Name"
           variant="filled"
-          name="lastname"
+          name="lastName"
           color="secondary"
-          autoComplete="lastname"
+          autoComplete="lastName"
           autoFocus
         />{" "}
         <br />
@@ -134,9 +145,9 @@ export default function LoginScreen() {
           required
           fullWidth
           style={{ width: "525px" }}
-          name="confirmPassword"
+          name="passwordVerify"
           label="Confirm Password"
-          type="confirmPassword"
+          type="passwordVerify"
           variant="filled"
           color="secondary"
           id="password"

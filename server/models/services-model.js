@@ -3,7 +3,6 @@ const Schema = mongoose.Schema
 
 const ServicesSchema = new Schema(
     {
-        id: { type: Number, required: true },
         name: { type: String, required: true },
         description: { type: String, required: true },
         rating: { type: Number },
