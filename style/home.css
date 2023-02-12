@@ -12,3 +12,28 @@
     text-decoration: none;
     color: #393343;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #e5564d;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    column-gap: 30px;
+}
+
+.footer-nav li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    border: black solid 2px;
+}
