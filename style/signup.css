@@ -59,6 +59,17 @@ body {
     color: white;
     font-size: 18px;
   }
+
+  button {
+    width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: #4969c1;
+    color: white;
+    font-size: 18px;
+  }
+
   p {
     text-align: center;
     padding-top: 20px;
