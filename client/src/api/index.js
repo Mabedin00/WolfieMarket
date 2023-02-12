@@ -1,8 +1,8 @@
-import axios from 'axios'
+import axios from "axios";
 axios.defaults.withCredentials = true;
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api',
-})
+  baseURL: "http://localhost:5000/api",
+});
 
 // THESE ARE ALL THE REQUESTS WE`LL BE MAKING, ALL REQUESTS HAVE A
 // REQUEST METHOD (like get) AND PATH (like /top5list). SOME ALSO
@@ -17,10 +17,10 @@ export const loginUser = (payload) => api.post(`/login/`, payload);
 export const logoutUser = () => api.get(`/logout/`);
 
 const apis = {
-    getLoggedIn,
-    registerUser,
-    loginUser,
-    logoutUser
+  getLoggedIn,
+  registerUser,
+  loginUser,
+  logoutUser,
 };
 
 export default apis;

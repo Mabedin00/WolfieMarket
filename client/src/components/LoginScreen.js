@@ -15,7 +15,6 @@ import AuthContext from "../auth";
 import { GlobalStoreContext } from "../store";
 import "./LoginScreen.css";
 import ResponsiveAppBar from "./ResponsiveAppBar.js";
-import Booter from "./Footer.js";
 export default function LoginScreen() {
   const { auth } = useContext(AuthContext);
   const { store } = useContext(GlobalStoreContext);
@@ -33,10 +32,6 @@ export default function LoginScreen() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    auth.loginUser({
-        username: formData.get('username'),
-        password: formData.get('password'),
-    }, store);
     console.log(auth.loggedIn);
   };
   return (
@@ -111,7 +106,6 @@ export default function LoginScreen() {
         <Link to="/register/" variant="body2">
           {"Don't have an account? Sign Up"}
         </Link>
-        <Booter></Booter>
       </Box>
     </div>
   );
