@@ -1,0 +1,11 @@
+body{
+    background-color: #e5564d;
+}
+.full-list{
+    background: white;
+    margin-left: 25%;
+    position:absolute;
+    top: 25%;
+    width: 50%;
+    text-align: center;
+}
