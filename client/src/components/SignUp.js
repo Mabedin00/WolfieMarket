@@ -13,8 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Cancel";
 import AuthContext from "../auth";
 import { GlobalStoreContext } from "../store";
-import "./LoginScreen.css";
-import ResponsiveAppBar from "./ResponsiveAppBar.js";
+import "./SignUp.css";
 export default function LoginScreen() {
   const { auth } = useContext(AuthContext);
   const { store } = useContext(GlobalStoreContext);
@@ -32,19 +31,14 @@ export default function LoginScreen() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    auth.loginUser({
-        username: formData.get('username'),
-        password: formData.get('password'),
-    }, store);
     console.log(auth.loggedIn);
   };
   return (
     <div className="foundation-screen">
-      <ResponsiveAppBar>logo and name</ResponsiveAppBar>;
       {/* <img src={logo} className="app-logo" alt="logo" /> */}
       <div className="splash-text">
         <Typography variant="h2" gutterBottom>
-          Login
+          Sign Up
         </Typography>
       </div>
       <Modal
@@ -85,6 +79,19 @@ export default function LoginScreen() {
           margin="normal"
           required
           fullWidth
+          name="email"
+          label="Email"
+          type="email"
+          variant="filled"
+          color="secondary"
+          id="password"
+          autoComplete="current-password"
+        />
+        <br />
+        <TextField
+          margin="normal"
+          required
+          fullWidth
           name="password"
           label="Password"
           type="password"
@@ -94,21 +101,30 @@ export default function LoginScreen() {
           autoComplete="current-password"
         />
         <br />
-        <FormControlLabel
-          control={<Checkbox value="remember" color="secondary" />}
-          label="Remember me"
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="confirmPassword"
+          label="Confirm Password"
+          type="confirmPassword"
+          variant="filled"
+          color="secondary"
+          id="password"
+          autoComplete="current-password"
         />
+        <br />
         <br />
         <Button
           type="submit"
           variant="contained"
           sx={{ mt: 3, mb: 2, color: "white", backgroundColor: "#6a3d45" }}
         >
-          Sign In
+          Sign Up
         </Button>{" "}
         <br />
-        <Link to="/register/" variant="body2">
-          {"Don't have an account? Sign Up"}
+        <Link to="/login/" variant="body2">
+          {"Have an account? Sign in"}
         </Link>
       </Box>
     </div>
