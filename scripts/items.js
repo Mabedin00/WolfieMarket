@@ -5,7 +5,6 @@ window.addEventListener('load', (event) => {
         if (event.currentTarget.checked) {
             for (let i = 0; i < items.length; i++) {
                 if (!items[i].classList.contains('textbook')) {
-                    console.log(items[i].style.display);
                     items[i].style.display = 'none';
                 }
             }
@@ -13,7 +12,6 @@ window.addEventListener('load', (event) => {
         else {
             for (let i = 0; i < items.length; i++) {
                 if (!items[i].classList.contains('textbook')) {
-                    console.log(items[i]);
                     items[i].style.display = '';
                 }
             }
