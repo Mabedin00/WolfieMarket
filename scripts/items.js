@@ -6,7 +6,7 @@ window.addEventListener('load', (event) => {
         checkboxes[i].addEventListener('change', (event) => {
             var items = document.getElementsByClassName('item');
             if (event.currentTarget.checked) {
-                console.log(event.currentTarget);
+                console.log(event.currentTarget.id);
             }
         });
     }
