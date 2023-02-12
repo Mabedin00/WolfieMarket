@@ -77,24 +77,24 @@ export default function LoginScreen() {
           margin="normal"
           required
           fullWidth
-          id="firstname"
+          id="firstName"
           label="First Name"
           variant="filled"
-          name="firstname"
+          name="firstName"
           color="secondary"
-          autoComplete="firstname"
+          autoComplete="firstName"
           autoFocus
         />{" "}
         <TextField
           margin="normal"
           required
           fullWidth
-          id="lastname"
+          id="lastName"
           label="Last Name"
           variant="filled"
-          name="lastname"
+          name="lastName"
           color="secondary"
-          autoComplete="lastname"
+          autoComplete="lastName"
           autoFocus
         />{" "}
         <br />
@@ -145,9 +145,9 @@ export default function LoginScreen() {
           required
           fullWidth
           style={{ width: "525px" }}
-          name="confirmPassword"
+          name="passwordVerify"
           label="Confirm Password"
-          type="confirmPassword"
+          type="passwordVerify"
           variant="filled"
           color="secondary"
           id="password"
