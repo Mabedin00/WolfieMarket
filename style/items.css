@@ -74,6 +74,8 @@ body {
 
 .content {
   margin-top: 20px;
+  margin-bottom: 10px;
+
 }
 
 .side-bar{
@@ -81,6 +83,29 @@ body {
 background: #f5f0f6; /* Old browsers */
 
 
+}
 
+footer {
+  bottom: 0;
+  background-color: #e5564d;
+  width: 100%;
+  padding-top: 10px;
+  height: 40px;
+}
 
+.footer-nav {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  column-gap: 30px;
+}
+
+.footer-nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  border: black solid 2px;
 }
