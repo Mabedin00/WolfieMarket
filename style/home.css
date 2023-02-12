@@ -1,6 +1,6 @@
 .storeOption {
     margin-top: 35px;
-    margin-left: 30px;
+    margin-left: 50px;
 }
 
 .button {
@@ -16,12 +16,12 @@
 .grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-column-gap: 140px;
+    grid-column-gap: 150px;
 }
 
 .recent-posts {
     text-align: center;
-    margin-right: 30px;
+    margin-right: 50px;
 }
 
 .recent-posts h1 {
@@ -31,7 +31,6 @@
 
 #recent-posts {
     border: solid 3px black;
-    margin-right: 30px;
     height: 635px;
     overflow: auto;
 }
