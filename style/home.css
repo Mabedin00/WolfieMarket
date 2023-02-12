@@ -1,0 +1,14 @@
+.storeOption {
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.button {
+    width: 500px;
+    height: 300px;
+    background-color: #e5564d;
+    border-radius: 2%;
+    font-size: 100px;
+    text-decoration: none;
+    color: #393343;
+}
