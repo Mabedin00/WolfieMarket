@@ -31,6 +31,14 @@ export default function LoginScreen() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+    auth.registerUser({
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      username: formData.get('username'),
+      password: formData.get('password'),
+      passwordVerify: formData.get('passwordVerify')
+  }, store);
     console.log(auth.loggedIn);
   };
   return (
@@ -66,32 +74,6 @@ export default function LoginScreen() {
           margin="normal"
           required
           fullWidth
-          id="firstname"
-          label="First Name"
-          variant="filled"
-          name="firstname"
-          color="secondary"
-          autoComplete="firstname"
-          autoFocus
-        />{" "}
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="lastname"
-          label="Last Name"
-          variant="filled"
-          name="lastname"
-          color="secondary"
-          autoComplete="lastname"
-          autoFocus
-        />{" "}
-        <br />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          style={{ width: "525px" }}
           id="username"
           label="Username"
           variant="filled"
@@ -105,7 +87,6 @@ export default function LoginScreen() {
           margin="normal"
           required
           fullWidth
-          style={{ width: "525px" }}
           name="email"
           label="Email"
           type="email"
@@ -119,7 +100,6 @@ export default function LoginScreen() {
           margin="normal"
           required
           fullWidth
-          style={{ width: "525px" }}
           name="password"
           label="Password"
           type="password"
@@ -133,7 +113,6 @@ export default function LoginScreen() {
           margin="normal"
           required
           fullWidth
-          style={{ width: "525px" }}
           name="confirmPassword"
           label="Confirm Password"
           type="confirmPassword"
